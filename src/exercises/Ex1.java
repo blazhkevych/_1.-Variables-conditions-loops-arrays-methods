@@ -1,7 +1,7 @@
 package exercises;
 
 /**
- * This is a Ex1 class which prints the provided lines with
+ * This is an Ex1 class that prints the provided lines with
  * increasing indentation.
  */
 public class Ex1 {

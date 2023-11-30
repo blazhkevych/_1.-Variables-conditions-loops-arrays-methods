@@ -1,5 +1,6 @@
 package exercises;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -17,19 +18,40 @@ public class Ex2 {
         // Create a Scanner object to read user input.
         Scanner scanner = new Scanner(System.in);
 
-        // Prompt the user to enter a value.
-        System.out.println("Please enter a value:");
-        double value = scanner.nextDouble();
+        double value = getValidDoubleInput("Please enter a value:", scanner);
 
-        // Prompt the user to enter a percentage.
-        System.out.println("Please enter a percentage:");
-        double percentage = scanner.nextDouble();
+        double percentage;
+        do {
+            percentage = getValidDoubleInput("Please enter a percentage:", scanner);
+            if (percentage < 0 || percentage > 100) {
+                System.out.println("Invalid input. Percentage must be between 0 and 100. Please try again.");
+            }
+        } while (percentage < 0 || percentage > 100);
 
         // Calculate the result.
         double result = calculatePercentage(value, percentage);
 
         // Output the result.
         System.out.println("The result is: " + result);
+    }
+
+    /**
+     * This method prompts the user for input until a valid double is entered.
+     *
+     * @param message the prompt message
+     * @param scanner the Scanner object to read user input
+     * @return the valid user input
+     */
+    public static double getValidDoubleInput(String message, Scanner scanner) {
+        while (true) {
+            System.out.println(message);
+            try {
+                return scanner.nextDouble();
+            } catch (InputMismatchException ex) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();  // Discard the invalid input.
+            }
+        }
     }
 
     /**

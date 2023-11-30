@@ -16,9 +16,7 @@ public class Ex6 {
         Scanner scanner = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("#.##########");  // Adjust as needed
 
-        System.out.println("Please enter the distance in meters: ");
-
-        double meters = scanner.nextDouble();
+        double meters = getValidDoubleInput("Please enter the distance in meters: ", scanner);
 
         System.out.println("Please select the unit you want to convert to (1. Miles, 2. Inches, 3. Yards): ");
 
@@ -46,5 +44,21 @@ public class Ex6 {
         }
 
         scanner.close();
+    }
+
+    /**
+     * This method prompts the user for input until a valid double is entered.
+     *
+     * @param prompt  the message that will be shown to the user before input
+     * @param scanner the Scanner object to read user input
+     * @return the double value input by the user
+     */
+    public static double getValidDoubleInput(String prompt, Scanner scanner) {
+        System.out.println(prompt);
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next();
+        }
+        return scanner.nextDouble();
     }
 }

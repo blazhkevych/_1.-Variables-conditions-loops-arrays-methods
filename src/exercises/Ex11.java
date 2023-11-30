@@ -1,23 +1,50 @@
 package exercises;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * This class provides a method to print a line of specified length, direction, and character.
+ * It now also includes data validation to ensure the input is valid.
  */
 public class Ex11 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int length = 0;
+        String direction = "";
+        char character;
 
-        System.out.print("Enter the length of the line: ");
-        int length = sc.nextInt();
+        // Validate the length
+        boolean validLength = false;
+        while (!validLength) {
+            try {
+                System.out.print("Enter the length of the line: ");
+                length = sc.nextInt();
 
-        System.out.print("Enter the direction of the line (H for horizontal, V for vertical): ");
-        String direction = sc.next();
+                if (length >= 0) {
+                    validLength = true;
+                } else {
+                    System.out.println("Invalid input, length should be 0 or more.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input, please enter an integer.");
+                sc.next();
+            }
+        }
+
+        // Validate the direction
+        while (!direction.equalsIgnoreCase("H") && !direction.equalsIgnoreCase("V")) {
+            System.out.print("Enter the direction of the line (H for horizontal, V for vertical): ");
+            direction = sc.next();
+
+            if (!direction.equalsIgnoreCase("H") && !direction.equalsIgnoreCase("V")) {
+                System.out.println("Invalid direction. Use 'H' for horizontal and 'V' for vertical.");
+            }
+        }
 
         System.out.print("Enter the character to draw the line: ");
-        char character = sc.next().charAt(0); // Get the first character of the string
+        character = sc.next().charAt(0); // Get the first character of the string
 
         printLine(length, direction, character);
     }
@@ -30,20 +57,15 @@ public class Ex11 {
      * @param character The character to be used for the line.
      */
     public static void printLine(int length, String direction, char character) {
-        // Check if the direction is horizontal
         if ("H".equalsIgnoreCase(direction)) {
-            // If horizontal, print a horizontal line
             for (int i = 0; i < length; i++) {
-                System.out.print(character); // print character without a newline
+                System.out.print(character);
             }
+            System.out.println(); // Add a newline at the end of the line
         } else if ("V".equalsIgnoreCase(direction)) {
-            // If vertical, print a vertical line
             for (int i = 0; i < length; i++) {
-                System.out.println(character); // print character with a newline
+                System.out.println(character);
             }
-        } else {
-            // If the direction is not recognized, print an error message
-            System.out.println("Invalid direction. Use 'H' for horizontal and 'V' for vertical.");
         }
     }
 }

@@ -16,11 +16,12 @@ public class Ex9 {
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
+        // Initializing an array with random numbers
         Random random = new Random();
         int[] array = random.ints(ARRAY_SIZE, -RANDOM_BOUND, RANDOM_BOUND).toArray();
 
+        // Printing array and its statistics
         printArray(array);
-
         System.out.println("Min element: " + findMinElement(array));
         System.out.println("Max element: " + findMaxElement(array));
         System.out.println("Number of negative elements: " + countNegatives(array));

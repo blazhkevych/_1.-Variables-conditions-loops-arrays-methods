@@ -7,6 +7,9 @@ import java.util.Random;
  * This class demonstrates how to filter arrays based on different conditions.
  */
 public class Ex10 {
+
+    // Line break limit when printing the array
+    private static final int LINE_BREAK = 10;
     public static void main(String[] args) {
         //Initializing the array with random numbers
         Random random = new Random();
@@ -90,7 +93,7 @@ public class Ex10 {
     private static void printArrayInFormat(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.printf("%5d ", arr[i]);
-            if ((i + 1) % 10 == 0) {
+            if ((i + 1) % LINE_BREAK == 0) {
                 System.out.println();
             }
         }

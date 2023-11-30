@@ -1,8 +1,7 @@
 package exercises;
 
 /**
- * This is an Ex1 class that prints the provided lines with
- * increasing indentation.
+ * This is a class that prints the provided lines with increasing indentation.
  */
 public class Ex1 {
     /**
@@ -11,22 +10,19 @@ public class Ex1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // This is the quoted text that we are going to print,
-        // with an increasing indentation starting from the second line.
+        // The quoted text to be printed.
         String[] lines = {
-                "\"Your time is limited,",
+                "Your time is limited,",
                 "so don’t waste it",
-                "living someone else’s life”",
+                "living someone else’s life",
                 "Steve Jobs"
         };
 
-        // We iterate over each line...
+        // Prints the lines with increasing indentation.
         for (int i = 0; i < lines.length; i++) {
-            // ... and print i indentation tabs before each line.
             for (int j = 0; j < i; j++) {
                 System.out.print("\t");
             }
-            // Finally, we print the line and move to the next one.
             System.out.println(lines[i]);
         }
     }

@@ -18,16 +18,16 @@ public class Ex3 {
         Scanner scanner = new Scanner(System.in);
 
         // Prompt the user to enter the first digit.
-        int firstDigit = getValidIntInput("Please enter the first digit:", scanner);
+        int firstDigit = receiveValidIntegerInput("Please enter the first digit:", scanner);
 
         // Prompt the user to enter the second digit.
-        int secondDigit = getValidIntInput("Please enter the second digit:", scanner);
+        int secondDigit = receiveValidIntegerInput("Please enter the second digit:", scanner);
 
         // Prompt the user to enter the third digit.
-        int thirdDigit = getValidIntInput("Please enter the third digit:", scanner);
+        int thirdDigit = receiveValidIntegerInput("Please enter the third digit:", scanner);
 
         // Form the number using the entered digits.
-        int result = makeNumber(firstDigit, secondDigit, thirdDigit);
+        int result = formNumber(firstDigit, secondDigit, thirdDigit);
 
         // Output the resulting number.
         System.out.println("The resulting number is: " + result);
@@ -41,7 +41,7 @@ public class Ex3 {
      * @param thirdDigit  the third digit of the number.
      * @return the number formed from the three provided digits.
      */
-    public static int makeNumber(int firstDigit, int secondDigit, int thirdDigit) {
+    public static int formNumber(int firstDigit, int secondDigit, int thirdDigit) {
         return firstDigit * 100 + secondDigit * 10 + thirdDigit;
     }
 
@@ -52,7 +52,7 @@ public class Ex3 {
      * @param scanner the Scanner object to read user input
      * @return the valid user input
      */
-    public static int getValidIntInput(String message, Scanner scanner) {
+    public static int receiveValidIntegerInput(String message, Scanner scanner) {
         System.out.println(message);
 
         while (!scanner.hasNextInt()) {

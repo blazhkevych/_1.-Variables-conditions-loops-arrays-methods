@@ -3,7 +3,11 @@ package exercises;
 import java.util.Scanner;
 
 /**
- * This class is used to identify the season based on the month number entered by user
+ * This class is used to identify the season based on the month number entered by the user.
+ * The month number should be between 1 and 12. If the entered number is outside this range,
+ * an error message is displayed, and the program terminates.
+ *
+ * The identified season is printed to the console.
  */
 public class Ex5 {
     /**
